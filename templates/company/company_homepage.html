@@ -1,0 +1,77 @@
+{% extends "company/company_base.html" %}
+{% load static %}
+
+{% block content %}
+
+<link href="{% static 'assets/css/style_profile.css'%}" rel="stylesheet">
+
+<div class="container px-4 mb-5">
+    <br>
+    <h2>Company Profile</h2>
+    <br><br>
+    <div class="row">
+        <div class="col">
+            <!-- Profile picture card-->
+            <div class="card mb-5">
+                <div class="card-header">Company Logo</div>
+                <div class="card-body text-center">
+                    <!-- Profile picture image-->
+                    <img class="img-account-profile mb-2" src="{{company.image.url}}" alt="" style="max-height: 300px; max-width: 300px">
+                    <!-- Profile picture help block-->
+                    <!-- Profile picture upload button-->
+                    <!-- <button class="btn btn-primary" type="button">Upload new image</button> -->
+                </div>
+        </div>
+        </div>
+        <div class="col-xl-8 mb-4">
+            <!-- Account details card-->
+            <div class="card mb-5">
+                <div class="card-header">Profile Details</div>
+                <div class="card-body">
+                    <form method="post" action="/updateprofilesubmit_company" enctype="multipart/form-data">
+                        <!-- Form Group (username)-->
+                        <div class="mb-3">
+                            <label class="small mb-1" for="inputEmailAddress">Email address</label>
+                            <input class="form-control" readonly id="inputEmailAddress" type="email" placeholder="Enter your email address" value="{{company.user.username}}">
+                        </div>
+                        <!-- Form Row-->
+                        <div class="row gx-3 mb-3">
+                            <!-- Form Group (first name)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="first_name">First name</label>
+                                <input class="form-control" id="first_name" name="first_name" type="text" placeholder="Enter your first name" value="{{company.user.first_name}}">
+                            </div>
+                            <!-- Form Group (last name)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="last_name">Last name</label>
+                                <input class="form-control" id="last_name" name="last_name" type="text" placeholder="Enter your last name" value="{{company.user.last_name}}">
+                            </div>
+                        </div>
+                        <!-- Form Row        -->
+                            <!-- Form Group (organization name)-->
+                            
+                            <!-- Form Group (location)-->
+                        <!-- Form Group (email address)-->
+                        <div class="row gx-3 mb-3">
+                            <!-- Form Group (phone number)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="company_name">Company Name</label>
+                                <input class="form-control" id="company_name" name="company_name" type="text" readonly placeholder="Your Company's Name" value="{{company.company_name}}" required="required">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="contact">Contact</label>
+                                <input class="form-control" id="contact" name="contact" type="tel" placeholder="Enter Your Mobile Number" value="{{company.phone}}"  required="required">
+                            </div>
+                            <!-- Form Group (birthday)-->
+                        </div>
+                        <!-- Save changes button-->
+                        {% csrf_token %}
+                        <button class="btn btn-primary" type="submit">Update</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

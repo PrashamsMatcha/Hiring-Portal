@@ -1,0 +1,34 @@
+{% extends "company/company_base.html" %}
+{% load static %}
+
+{% block content %}
+
+<link href="{% static 'assets/css/style_profile.css'%}" rel="stylesheet">
+
+<div class="container mt-4">
+    <h5>Please Be Careful before clicking on the DELETE button. It's IRREVERSIBLE!</h5>
+    <table class="table table-hover" id="example">
+        <thead>
+            <tr>
+                <th>Sr.No</th>
+                <th>Job Title</th>
+                <th>Created On</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for job in jobs %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{job.title}}</td>
+                <td>{{job.creation_date}}</td>
+                <td><a href="/edit_job/{{job.id}}" target=”blank” class="btn"><i class="fa fa-edit"></i></a></td>
+                <td><a href="/job_delete_company/{{job.id}}" class="btn"><i class="fa fa-trash"></i></a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+
+{% endblock %}

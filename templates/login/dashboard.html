@@ -1,0 +1,55 @@
+{% extends "login/base.html" %}
+{% load static %}
+
+{% block content %}
+<link href="{% static 'assets/css/style_profile.css'%}" rel="stylesheet">
+
+<div class="container mt-4">
+    <table class="table table-hover" id="example">
+        <thead>
+            <tr>
+                <th>Sr.No</th>
+                <th>Company Name</th>
+                <th>Job Title</th>
+                <th>Salary</th>
+                <th>Location</th>
+                <th>Created On</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <!-- <tbody>
+            {% for job in jobs %}
+            {% if job.id in data %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{job.company.company_name}}</td>
+                <td>{{job.title}}</td>
+                <td>{{job.salary}}</td>
+                <td>{{job.location}}</td>
+                <td>{{job.creation_date}}</td>
+     
+                <td><a class="btn btn-success">Applied</a></td>                
+            </tr>
+            {% endif %}
+            {% endfor %}
+        </tbody> -->
+        <tbody>
+            {% for app in apply %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{app.job.company.company_name}}</td>
+                <td>{{app.job.title}}</td>
+                <td>{{app.job.salary}}</td>
+                <td>{{app.job.location}}</td>
+                <td>{{app.job.creation_date}}</td>
+     
+                <td><a class="btn btn-success {{app.status}}">{{app.status}}</a></td>
+                
+<!--                 <td><a href="/job_detail/{{job.id}}/" class="btn btn-success">Apply</a></td>
+ -->                
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+{% endblock %}

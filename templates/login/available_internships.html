@@ -1,0 +1,68 @@
+{% extends "login/base.html" %}
+{% load static %}
+
+{% block content %}
+
+<link href="{% static 'assets/css/style_register.css'%}" rel="stylesheet">
+
+<div class="container mt-5 mb-3">
+    <h1>Check out the following Available Roles :</h1>
+    <!-- {% for i in data %}
+    <div class="row">
+        {% for job in i %}
+        <div class="col-md-4 mb-5 internship g-3">
+            <div class="card p-3 mb-2">
+                <div class="d-flex flex-fill ">
+                    <div class="d-flex flex-fill">
+                        
+                        <div> <img src="{{job.image}}" style = "height: 100px; width: 100px; border-radius:10%;"> </div>
+                        <div class="ms-2 c-details"><br>
+                            <h5 class="mb-0">{{job.company}}</h5> <span> Created on - {{job.creation_date}}</span>
+                        </div>
+                    </div>
+                    <div class="badge"> <span>{{job.job_profile}}</span> </div>
+                </div>
+                <div class="mt-5">
+                    <a href="/jobdetails/{{job.id}}" class = "stretched-link"><h3 class="heading">{{job.title}}</h3></a>
+                    <div class="mt-5">
+                        <div class="mt-3"> <span class="text2">Application Deadline - <span class="text1">{{job.deadline}}</span></span> </div>
+                        <br>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    {% endfor %} -->
+    <div class="row">
+    {% for job in jobs %}
+        <div class="col-md-4 mb-5 internship">
+            <div class="card p-3 mb-2">
+                <div class="d-flex flex-fill ">
+                    <div class="d-flex flex-fill">
+                        
+                        <div> <img src="{{job.image}}" style = "height: 100px; width: 100px; border-radius:10%;"> </div>
+                        <div class="ms-2 c-details"><br>
+                            <h5 class="mb-0">{{job.company}}</h5> <span> Created on - {{job.creation_date}}</span>
+                        </div>
+                    </div>
+                    <div class="badge"> <span>{{job.job_profile}}</span> </div>
+                </div>
+                <div class="mt-5">
+                    <a href="/jobdetails/{{job.id}}" class = "stretched-link"><h3 class="heading">{{job.title}}</h3></a>
+                    <div class="mt-5">
+                        <div class="mt-3"> <span class="text2">Application Deadline - <span class="text1">{{job.deadline}}</span></span> </div>
+                        <br>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        </div>
+    </div>
+{% endblock content%}

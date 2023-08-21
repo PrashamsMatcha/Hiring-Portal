@@ -1,0 +1,375 @@
+{% extends "login/base.html" %}
+{% load static %}
+
+{% block content %}
+
+<link href="{% static 'assets/css/style_profile.css'%}" rel="stylesheet">
+
+<!-- <div class="container rounded bg-white mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-3 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span class="font-weight-bold">{{user.username}}</span><span> </span></div>
+        </div>
+        <form>
+        <div class="col-md-5 border-right">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-right">Profile Settings</h4>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-6"><label class="labels">First Name</label><input type="text" class="form-control" placeholder="First Name" value="" name="first_name" required="required"></div>
+                    <div class="col-md-6"><label class="labels">Last Name</label><input type="text" class="form-control" value="" placeholder="Last Name" name="last_name" required="required"></div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-12"><label class="labels">Contact Number</label><input type="text" class="form-control" placeholder="Please Enter Your Mobile Number" value="" name="contact" required="required"></div>
+                    <div class="col-md-12"><label class="labels">Email Address</label><input type="email" class="form-control" placeholder="Please Enter Your Email ID" value="" name="email" required="required"></div>
+                    <div class="col-md-12"><label class="control-label" for="date">Date of Birth</label><input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>
+                <div class="col-md-12"><label class="labels">Date Of Birth</label><input type="text" class="form-control" placeholder="Your Department" value="" name="dob" required="required"></div>
+                    <div class="col-md-12"><label class="labels">College</label><input type="text" class="form-control" placeholder="Your College" value="" name="college" required="required"></div>
+                    <div class="col-md-12"><label class="labels">Department</label><input type="text" class="form-control" placeholder="Your Department" value="" name="department" required="required"></div>
+                    <div class="col-md-12"><label class="labels">Year Of Study</label><input type="text" class="form-control" placeholder="Your Current Year" value="" name="current_year" required="required"></div>
+                    
+                </div>
+                {% csrf_token %}
+                <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Save Profile</button></div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center experience"><span><h4 class="text-right">Upload</h4></span></div><br>
+                <h5>Upload Your Resume</h5>
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="docfile" name="" required="required">
+                    <label class="custom-file-label" for="docfile">Choose Resume file</label>
+                </div>
+                <br><br>
+                <h5>Upload Your Profile Picture</h5>
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="profile_pic"  name=""required="required">
+                    <label class="custom-file-label" for="profile_pic" name="profile_pic">Choose Profile Pic</label>
+                </div>
+            </div>
+        </div>
+    </form>
+    </div>
+</div>
+</div>
+</div> -->
+<!-- 
+<div class="container" data-aos="fade-up">
+    <div class="row align-items-center">
+        <div class="col">
+            <img width="150px"
+                src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
+        </div>
+        <div class="col">
+            <form action="/login/signup" method="post">
+                <div class="row mt-5"> -->
+                    <!-- <div class="form-group col">
+               <label for="first_name">First Name</label>
+               <input type="text" name="first_name" class="form-control" id="first_name" placeholder="First Name" required>
+             </div> -->
+                    
+
+
+                    <<!-- div class="form-group col">
+                        <label for="last_name">Last Name</label>
+                        <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Last Name"
+                            required>
+                    </div>
+                    <div class="form-group col">
+                        <label for="last_name">Last Name</label>
+                        <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Last Name"
+                            required>
+                    </div>
+
+                </div>
+                <div class="form-group col-8 justify-content-end" >
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" name="username" id="username"
+                        placeholder="Choose a Unique Username" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email-Id</label>
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Enter Your Email"
+                        required>
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                        else.</small>
+                </div>
+                <div class="form-group">
+                    <label for="pass1">Password</label>
+                    <input type="password" class="form-control" name="pass1" id="pass1"
+                        placeholder="Enter Your Password" required>
+                </div>
+                <div class="form-group">
+                    <label for="pass2">Confirm Password</label>
+                    <input type="password" class="form-control" name="pass2" id="pass2"
+                        placeholder="Confirm Your Password" required>
+                </div>
+                {% csrf_token %}
+                <div class="text-center"><button type="submit" class="btn btn-primary mb-2">Sign Up</button></div>
+                <br>
+                <div class="border-top pt-3">
+                    <small class="text-muted">
+                        Already Have An Account? <a class="ml-2" href="/login/signin">Sign In</a>
+                    </small>
+                </div>
+            </form>
+        </div>
+    </div>
+</div> -->
+{% if applicant.update_status == "No" %}
+<div class="container px-4 mb-5">
+    <h2>Update Profile</h2>
+    <br><br>
+    <div class="row">
+        <div class="col">
+            <!-- Profile picture card-->
+            <div class="card mb-5">
+                <div class="card-header">Profile Picture</div>
+                <div class="card-body text-center">
+                    <!-- Profile picture image-->
+                    {% if applicant.gender == "Male" %}
+                    <img class="img-account-profile rounded-circle mb-2" src="https://cdn.icon-icons.com/icons2/2643/PNG/512/male_boy_person_people_avatar_icon_159358.png" alt="">
+                    {% else %}
+                    <img class="img-account-profile rounded-circle mb-2" src="data:image/png;base64,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" alt="">
+                    {% endif %}
+                    <!-- Profile picture help block-->
+                    <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
+                    <!-- Profile picture upload button-->
+                    <!-- <button class="btn btn-primary" type="button">Upload new image</button> -->
+                </div>
+            </div>
+            <div class="card mb-5">
+                <div class="card-header">Resume</div>
+                <div class="card-body text-center">
+                    <!-- Profile picture help block-->
+                    <div class="small font-italic text-muted mb-4">Should be .pdf or .docx format</div>
+                    <!-- Profile picture upload button-->
+                    <!-- <button class="btn btn-primary" type="button">Upload Resume</button> -->
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-8 mb-4">
+            <!-- Account details card-->
+            <div class="card mb-5">
+                <div class="card-header">Profile Details</div>
+                <div class="card-body">
+                    <form method="post" action="/updateprofilesubmit" enctype="multipart/form-data">
+                        <!-- Form Group (username)-->
+                        <div class="mb-3">
+                            <label class="small mb-1" for="inputEmailAddress">Email address</label>
+                            <input class="form-control" readonly id="inputEmailAddress" type="email" placeholder="Enter your email address" value="{{applicant.user.username}}">
+                        </div>
+                        <!-- Form Row-->
+                        <div class="row gx-3 mb-3">
+                            <!-- Form Group (first name)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="first_name">First name</label>
+                                <input class="form-control" id="first_name" name="first_name" type="text" placeholder="Enter your first name" value="{{applicant.user.first_name}}">
+                            </div>
+                            <!-- Form Group (last name)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="last_name">Last name</label>
+                                <input class="form-control" id="last_name" name="last_name" type="text" placeholder="Enter your last name" value="{{applicant.user.last_name}}">
+                            </div>
+                        </div>
+                        <!-- Form Row        -->
+                        <div class="row gx-3 mb-3">
+                            <!-- Form Group (organization name)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="college">College</label>
+                                <input class="form-control" id="college" name="college" type="text" placeholder="Your College's Name" required="required">
+                            </div>
+                            <!-- Form Group (location)-->
+                            <div class="col-md-6">
+                                <label for="degree">Degree</label>
+                            <select id="degree" class="form-control" name="degree" required="required">
+                              <option>B.Tech</option>
+                              <option>B.Engg</option>
+                              <option>B.Com</option>
+                              <option>B.Sc</option>
+                              <option>BA</option>
+                              <option>M.Tech</option>
+                              <option>MBA</option>
+                              <option>M.Sc</option>
+                              <option>M.Engg</option>    
+                            </select>
+                            </div>
+                        </div>
+                        <!-- Form Group (email address)-->
+                        <div class="mb-3">
+                            <label class="small mb-1" for="department">Department</label>
+                            <input class="form-control" id="department" name="department" type="text" placeholder="Your Department" required="required">
+                        </div>
+                        <div class="mb-3">
+                            <label for="current_year">Current Year</label>
+                            <select id="current_year" class="form-control" name="current_year" required="required">
+                              <option>1</option>
+                              <option>2</option>
+                              <option>3</option>
+                              <option>4</option>    
+                            </select>
+                          </div>
+                        <!-- Form Row-->
+                        <div class="row gx-3 mb-3">
+                            <!-- Form Group (phone number)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="contact">Contact</label>
+                                <input class="form-control" id="contact" name="contact" type="tel" placeholder="Enter Your Mobile Number" required="required">
+                            </div>
+                            <!-- Form Group (birthday)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="dob">Date Of Birth</label>
+                                <input class="form-control" id="dob" name="dob" type="date" placeholder="Enter Your Date of Birth" required="required">
+                            </div>
+                        </div>
+                        <div class="row gx-3 mb-3">
+                            <div class="col custom-file">
+                                <input type="file" class="custom-file-input" id="docfile" name="docfile" required="required">
+                                <label class="custom-file-label" for="docfile">Choose Resume file</label>
+                            </div>
+                            <div class="col custom-file">
+                                <input type="file" class="custom-file-input" id="profile_pic" name="profile_pic" required="required">
+                                <label class="custom-file-label" for="profile_pic" >Choose Profile Pic</label>
+                            </div>
+                        </div>
+                        <!-- Save changes button-->
+                        {% csrf_token %}
+                        <button class="btn btn-primary" type="submit">Save changes</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% else %}
+<div class="container px-4 mb-5">
+    <h2>Update Profile</h2>
+    <br><br>
+    <div class="row">
+        <div class="col">
+            <!-- Profile picture card-->
+            <div class="card mb-5">
+                <div class="card-header">Profile Picture</div>
+                <div class="card-body text-center">
+                    <!-- Profile picture image-->
+                    <img class="img-account-profile rounded-circle mb-2" src="{{applicant.profile_pic.url}}" style="max-height: 200px; max-width: 200px">
+                    <!-- Profile picture help block-->
+                    <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
+                    <!-- Profile picture upload button-->
+                    <!-- <button class="btn btn-primary" type="button">Upload new image</button> -->
+                </div>
+            </div>
+            <div class="card mb-4">
+                <div class="card-header">Resume</div>
+                <div class="card-body text-center">
+                    <!-- Profile picture help block-->
+                    <div class="small font-italic text-muted mb-4">Should be .pdf or .docx format</div>
+                    <div class="small font-italic text-muted mb-4">Check Resume : </div>
+                    <a href="{{applicant.docfile.url}}" target="_blank" class="btn"><i class="fa fa-file"></i></a>
+                    <!-- Profile picture upload button-->
+                    <!-- <button class="btn btn-primary" type="button">Upload Resume</button> -->
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-8 mb-4">
+            <!-- Account details card-->
+            <div class="card mb-5">
+                <div class="card-header">Profile Details</div>
+                <div class="card-body">
+                    <form method="post" action="/updateprofilesubmit" enctype="multipart/form-data">
+                        <!-- Form Group (username)-->
+                        <div class="mb-3">
+                            <label class="small mb-1" for="inputEmailAddress">Email address</label>
+                            <input class="form-control" readonly id="inputEmailAddress" type="email" placeholder="Enter your email address" value="{{applicant.user.username}}">
+                        </div>
+                        <!-- Form Row-->
+                        <div class="row gx-3 mb-3">
+                            <!-- Form Group (first name)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="first_name">First name</label>
+                                <input class="form-control" id="first_name" name="first_name" type="text" placeholder="Enter your first name" value="{{applicant.user.first_name}}">
+                            </div>
+                            <!-- Form Group (last name)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="last_name">Last name</label>
+                                <input class="form-control" id="last_name" name="last_name" type="text" placeholder="Enter your last name" value="{{applicant.user.last_name}}">
+                            </div>
+                        </div>
+                        <!-- Form Row        -->
+                        <div class="row gx-3 mb-3">
+                            <!-- Form Group (organization name)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="college">College</label>
+                                <input class="form-control" id="college" name="college" type="text" placeholder="Your College's Name" value="{{applicant.college}}" required="required">
+                            </div>
+                            <!-- Form Group (location)-->
+                            <div class="col-md-6">
+                                <label for="degree">Degree</label>
+                            <select id="degree" class="form-control" name="degree" value="{{applicant.degree}}" required="required">
+                              <option selected>{{applicant.degree}}</option>
+                              <option>B.Tech</option>
+                              <option>B.Engg</option>
+                              <option>B.Com</option>
+                              <option>B.Sc</option>
+                              <option>BA</option>
+                              <option>M.Tech</option>
+                              <option>MBA</option>
+                              <option>M.Sc</option>
+                              <option>M.Engg</option>    
+                            </select>
+                            </div>
+                        </div>
+                        <!-- Form Group (email address)-->
+                        <div class="mb-3">
+                            <label class="small mb-1" for="department">Department</label>
+                            <input class="form-control" id="department" name="department" type="text" placeholder="Your Department" value="{{applicant.department}}" required="required">
+                        </div>
+                        <div class="mb-3">
+                            <label for="current_year">Current Year</label>
+                            <select id="current_year" class="form-control" name="current_year" value="{{applicant.current_year}}" required="required">
+                              <option selected>{{applicant.current_year}}</option>
+                              <option>1</option>
+                              <option>2</option>
+                              <option>3</option>
+                              <option>4</option>    
+                            </select>
+                          </div>
+                        <!-- Form Row-->
+                        <div class="row gx-3 mb-3">
+                            <!-- Form Group (phone number)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="contact">Contact</label>
+                                <input class="form-control" id="contact" name="contact" type="tel" value="{{applicant.contact}}" placeholder="Enter Your Mobile Number" required="required">
+                            </div>
+                            <!-- Form Group (birthday)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="dob">Date Of Birth</label>&nbsp;&nbsp;&nbsp; - {{applicant.dob}}
+                                <input class="form-control" id="dob" name="dob" type="date" placeholder="Enter Your Date of Birth" value="{{applicant.dob}}">
+                            </div>
+                        </div>
+                        <div class="row gx-3 mb-3">
+                            <div class="col custom-file">
+                                <input type="file" class="custom-file-input" id="docfile" name="docfile" required="required">
+                                <label class="custom-file-label" for="docfile">Update Resume file</label>
+                            </div>
+                            <div class="col custom-file">
+                                <input type="file" class="custom-file-input" id="profile_pic" name="profile_pic" required="required">
+                                <label class="custom-file-label" for="profile_pic" >Update Profile Pic</label>
+                            </div>
+                        </div>
+                        <!-- Save changes button-->
+                        {% csrf_token %}
+                        <button class="btn btn-primary" type="submit">Update</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endif %}
+
+{% endblock %}

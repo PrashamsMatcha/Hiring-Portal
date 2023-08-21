@@ -1,0 +1,53 @@
+{% extends "company/company_base.html" %}
+{% load static %}
+
+{% block content %}
+
+<link href="{% static 'assets/css/style_profile.css'%}" rel="stylesheet">
+
+<div class="container mt-4">
+    <table class="table table-hover" id="example">
+        <thead>
+            <tr>
+                <th>Sr.No</th>
+                <th>Job Title</th>
+                <th>Applicant</th>
+                <th>Applied On</th>
+                <th>Resume</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in application %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{i.job}}</td>
+                <td>{{i.applicant}}</td>
+                <td>{{i.apply_date}}</td>
+                <td><a href="{{i.resume.url}}" target="_blank" class="btn"><i class="fa fa-file"></i></a></td>
+                <td><!-- <div class="btn-group btn" role="group">
+                    <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Applied
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                      <a class="dropdown-item" href="/status_change/{{i.id}}">Under Process</a>
+                      <a class="dropdown-item" href="/status_change/{{i.id}}">Shortlisted</a>
+                      <a class="dropdown-item" href="/status_change/{{i.id}}">Shortlisted</a>
+                    </div> -->
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle {{i.status}}" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          {{i.status}}
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <a class="dropdown-item" href="/status_change/{{i.id}}/under_process">Under Process</a>
+                          <a class="dropdown-item" href="/status_change/{{i.id}}/shortlisted">Shortlisted</a>
+                          <a class="dropdown-item" href="/status_change/{{i.id}}/selected">Selected</a>
+                          <a class="dropdown-item" href="/status_change/{{i.id}}/rejected">Rejected</a>
+                        </div>
+                      </div>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+{% endblock %}
